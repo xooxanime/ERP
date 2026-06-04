@@ -1,0 +1,77 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                  SHRI EDUCATION PLATFORM - QUICK LOGIN GUIDE              ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+🌐 FRONTEND URL: http://localhost:5173/
+🔧 BACKEND URL:  http://localhost:10000/api
+
+════════════════════════════════════════════════════════════════════════════
+
+1️⃣  ADMIN DASHBOARD
+────────────────────────────────────────────────────────────────────────────
+Email:    admin@shri.com
+Password: Admin@123
+Role:     ADMIN
+Dashboard: /admin/dashboard
+
+Features:
+  ✓ Course Management
+  ✓ Student Management
+  ✓ Faculty Management
+  ✓ Payment Management
+  ✓ Analytics & Reports
+  ✓ Hero Section Management
+
+════════════════════════════════════════════════════════════════════════════
+
+2️⃣  TEACHER DASHBOARD
+────────────────────────────────────────────────────────────────────────────
+Email:    teacher@shri.com
+Password: Teacher@123
+Role:     TEACHER
+Dashboard: /teacher/dashboard
+
+Features:
+  ✓ View Assigned Courses
+  ✓ Manage Course Content
+  ✓ Track Student Progress
+  ✓ Upload Study Materials
+  ✓ Communicate with Students
+
+════════════════════════════════════════════════════════════════════════════
+
+3️⃣  STUDENT DASHBOARD
+────────────────────────────────────────────────────────────────────────────
+Email:    student@shri.com
+Password: Student@123
+Role:     STUDENT
+Dashboard: /student/dashboard
+
+Features:
+  ✓ Browse Courses
+  ✓ Enroll in Courses
+  ✓ View Course Content
+  ✓ Track Progress
+  ✓ Download Study Materials
+  ✓ Make Payments
+
+════════════════════════════════════════════════════════════════════════════
+
+🚀 HOW TO TEST:
+
+1. Open: http://localhost:5173/
+2. Click "Login"
+3. Enter credentials from above
+4. Click "Sign In"
+5. You'll be redirected to your dashboard
+6. Logout and repeat with different credentials
+
+════════════════════════════════════════════════════════════════════════════
+
+✅ SYSTEM STATUS:
+   Backend:  Running ✓
+   Frontend: Running ✓
+   Database: Connected ✓
+   Users:    Created ✓
+
+════════════════════════════════════════════════════════════════════════════
