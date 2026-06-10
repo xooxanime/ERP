@@ -37,6 +37,15 @@ const TEACHER_NAV = [
   { label: 'Profile', icon: Settings, path: '/teacher/profile' },
 ];
 
+
+const PARENT_NAV = [
+  { label: 'Overview', icon: LayoutDashboard, path: '/parent/dashboard' },
+  { label: 'Courses', icon: BookOpen, path: '/parent/courses' },
+  { label: 'Progress', icon: BarChart3, path: '/parent/progress' },
+  { label: 'Attendance', icon: CalendarDays, path: '/parent/attendance' },
+  { label: 'Notifications', icon: Bell, path: '/parent/notifications' },
+];
+
 const ADMIN_NAV = [
   { label: 'Dashboard', icon: LayoutDashboard, path: '/admin/dashboard' },
   { group: 'User Management' },
@@ -85,10 +94,32 @@ export function Sidebar({ collapsed, setCollapsed }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const navItems = user?.role === 'admin' ? ADMIN_NAV : user?.role === 'teacher' ? TEACHER_NAV : STUDENT_NAV;
-  const roleLabel = user?.role === 'admin' ? 'Admin Panel' : user?.role === 'teacher' ? 'Teacher Portal' : 'Student Portal';
-  const roleColor = user?.role === 'admin' ? 'bg-violet-500' : user?.role === 'teacher' ? 'bg-emerald-500' : 'bg-primary';
+ const navItems =
+  user?.role === 'admin'
+    ? ADMIN_NAV
+    : user?.role === 'teacher'
+    ? TEACHER_NAV
+    : user?.role === 'parent'
+    ? PARENT_NAV
+    : STUDENT_NAV;
 
+const roleLabel =
+  user?.role === 'admin'
+    ? 'Admin Panel'
+    : user?.role === 'teacher'
+    ? 'Teacher Portal'
+    : user?.role === 'parent'
+    ? 'Parent Portal'
+    : 'Student Portal';
+
+const roleColor =
+  user?.role === 'admin'
+    ? 'bg-violet-500'
+    : user?.role === 'teacher'
+    ? 'bg-emerald-500'
+    : user?.role === 'parent'
+    ? 'bg-amber-500'
+    : 'bg-primary';
   const handleLogout = () => { logout(); navigate('/login'); };
 
   return (

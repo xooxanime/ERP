@@ -219,12 +219,15 @@ export const login = async (req, res) => {
   }
 };
 
+
 // @desc    Get current logged in user
 // @route   GET /api/auth/me
 // @access  Private
 export const getMe = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id)
+      .populate('permissions')
+      .populate('parentInfo.studentId', 'name email');
 
     res.status(200).json({
       status: 'success',
@@ -236,7 +239,17 @@ export const getMe = async (req, res) => {
           phone: user.phone,
           role: user.role,
           avatar: user.avatar,
-          enrolledCourses: user.enrolledCourses
+          approvalStatus: user.approvalStatus,
+          enrolledCourses: user.enrolledCourses,
+
+          // Parent data
+          parentInfo: user.parentInfo,
+
+          // Teacher data
+          teacherInfo: user.teacherInfo,
+
+          // Permissions
+          permissions: user.permissions
         }
       }
     });

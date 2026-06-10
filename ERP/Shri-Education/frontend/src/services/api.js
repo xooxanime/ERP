@@ -100,6 +100,13 @@ export const adminAPI = {
   verifyPayment: (id, data) => api.put(`/admin/payments/${id}/verify`, data)
 };
 
+// Parent APIs
+export const parentAPI = {
+  getDashboard: () => api.get('/parent/dashboard'),
+  getProgress: () => api.get('/parent/progress'),
+  getAttendance: () => api.get('/parent/attendance'),
+  getCourses: () => api.get('/parent/courses')
+};
 // Faculty APIs
 export const facultyAPI = {
   getAll: () => api.get('/faculty')

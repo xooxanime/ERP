@@ -28,19 +28,26 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center relative p-4 overflow-hidden">
+      {/* Background Image with Blur and Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transition-all duration-700"
+        style={{ backgroundImage: `url('/school-bg.png')` }}
+      />
+      <div className="absolute inset-0 bg-slate-900/65 dark:bg-slate-950/75 backdrop-blur-[3px]" />
+
+      <div className="w-full max-w-md relative z-10">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl font-bold text-white font-display">S</span>
+        <div className="text-center mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-primary/95 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-primary/30 border border-primary/20 backdrop-blur-md">
+            <span className="text-3xl font-bold text-white font-display">S</span>
           </div>
-          <h1 className="text-2xl font-bold text-foreground font-display">Welcome back</h1>
-          <p className="text-muted-foreground text-sm mt-1">Sign in to Shri Education ERP</p>
+          <h1 className="text-3xl font-bold text-white font-display tracking-tight drop-shadow-md">Welcome back</h1>
+          <p className="text-slate-200 text-sm mt-1 drop-shadow-sm font-medium">Sign in to Shri Education ERP</p>
         </div>
 
-        {/* Form Card */}
-        <div className="bg-card border border-border rounded-2xl shadow-card p-6 sm:p-8">
+        {/* Form Card with subtle glassmorphism */}
+        <div className="bg-white/95 dark:bg-card/90 backdrop-blur-md border border-white/20 dark:border-border/50 rounded-2xl shadow-2xl p-6 sm:p-8 transition-all duration-300">
           <form onSubmit={handleSubmit} className="space-y-5">
             <Input
               label="Email Address"
@@ -76,7 +83,7 @@ export default function Login() {
               <Link to="/forgot-password" className="text-sm text-primary hover:underline">Forgot password?</Link>
             </div>
 
-            <Button type="submit" disabled={loading} className="w-full h-11 text-base">
+            <Button type="submit" disabled={loading} className="w-full h-11 text-base shadow-lg shadow-primary/25 hover:shadow-primary/35 transition-all">
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>

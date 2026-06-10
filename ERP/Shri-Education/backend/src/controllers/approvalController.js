@@ -142,6 +142,39 @@ export const updateApprovalRequest = async (req, res) => {
     const user = approvalRequest.userId;
 
     if (action === 'approve') {
+      if (approvalRequest.requestedRole === 'parent') {
+
+  if (!approvalRequest.parentInfo?.studentEmail) {
+    return res.status(400).json({
+      status: 'error',
+      message: 'Parent request is missing student information'
+    });
+  }
+
+  const student = await User.findOne({
+    email: approvalRequest.parentInfo.studentEmail,
+    role: 'student',
+    isActive: true
+  });
+
+  if (!student) {
+    return res.status(400).json({
+      status: 'error',
+      message: `Student account with email ${approvalRequest.parentInfo.studentEmail} not found`
+    });
+  }
+
+  // Save linkage in approval request
+  approvalRequest.parentInfo.studentId = student._id;
+
+  // Save linkage in parent user account
+  user.parentInfo = {
+    studentId: student._id,
+    studentName: student.name,
+    relationship:
+      approvalRequest.parentInfo.relationship || 'guardian'
+  };
+}
       // Update approval request
       approvalRequest.status = 'approved';
       // Safely set approvedBy if user info is available

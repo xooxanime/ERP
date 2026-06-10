@@ -23,6 +23,13 @@ import CourseContent from './pages/student/CourseContent';
 import ProgressTracking from './pages/student/ProgressTracking';
 import StudentProfile from './pages/student/Profile';
 
+//Parent Dashboar
+import ParentDashboard from './pages/parent/Dashboard';
+import ParentCourses from './pages/parent/Courses';
+import ParentProgress from './pages/parent/Progress';
+import ParentAttendance from './pages/parent/Attendance';
+import ParentNotifications from './pages/parent/Notifications';
+
 // Teacher Pages
 import TeacherDashboard from './pages/teacher/Dashboard';
 
@@ -85,6 +92,52 @@ function App() {
         <Route path="/teacher/tests" element={<DashboardRoute Guard={TeacherRoute}><ComingSoon title="Test & Results" description="Create tests and publish results." /></DashboardRoute>} />
         <Route path="/teacher/announcements" element={<DashboardRoute Guard={TeacherRoute}><ComingSoon title="Announcements" description="Post announcements for your students." /></DashboardRoute>} />
         <Route path="/teacher/profile" element={<DashboardRoute Guard={TeacherRoute}><StudentProfile /></DashboardRoute>} />
+
+
+        {/* ── Parent Routes ── */}
+<Route
+  path="/parent/dashboard"
+  element={
+    <DashboardRoute Guard={PrivateRoute}>
+      <ParentDashboard />
+    </DashboardRoute>
+  }
+/>
+<Route
+  path="/parent/courses"
+  element={
+    <DashboardRoute Guard={PrivateRoute}>
+      <ParentCourses />
+    </DashboardRoute>
+  }
+/>
+
+<Route
+  path="/parent/progress"
+  element={
+    <DashboardRoute Guard={PrivateRoute}>
+      <ParentProgress />
+    </DashboardRoute>
+  }
+/>
+
+<Route
+  path="/parent/attendance"
+  element={
+    <DashboardRoute Guard={PrivateRoute}>
+      <ParentAttendance />
+    </DashboardRoute>
+  }
+/>
+
+<Route
+  path="/parent/notifications"
+  element={
+    <DashboardRoute Guard={PrivateRoute}>
+      <ParentNotifications />
+    </DashboardRoute>
+  }
+/>
 
         {/* ── Admin Routes ── */}
         <Route path="/admin/dashboard" element={<DashboardRoute Guard={AdminRoute}><AdminDashboard /></DashboardRoute>} />

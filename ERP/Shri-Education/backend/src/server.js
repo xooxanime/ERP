@@ -16,6 +16,7 @@ import progressRoutes from './routes/progressRoutes.js';
 import approvalRoutes from './routes/approvalRoutes.js';
 import teacherRoutes from './routes/teacherRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import parentRoutes from './routes/parentRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -59,6 +60,7 @@ app.use('/api/study-materials', studyMaterialRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/approvals', approvalRoutes);
 app.use('/api/teacher', teacherRoutes);
+app.use('/api/parent', parentRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {
